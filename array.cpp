@@ -6,7 +6,7 @@ int main()
 {
 	int i[10]={1, 4, 3, 4, 4};
 	
-	for(int j=0;j<4;j++)
+	for(int j=0;j<5;j++)
 	{
 		cout<<i[j]<<endl;
 	}
