@@ -6,6 +6,7 @@ int main()
 {
 	greet();
 	cout<<"cpedstructl";
+	
 }
 
 void greet()
