@@ -60,17 +60,19 @@ int main() {
 
 	int num;
 	int choice;
-	menu();
+	
 	
 do{	
-a:	cin>>choice;
+	menu();
+	cin>>choice;
 	
 	switch(choice)
 	{
 		case 1:{
 			cout<<"Push: ";
 			cin>>num;
-			 s -> push(num);
+			
+			s -> push(num);
 			break;
 		}
 		case 2:{
@@ -78,8 +80,7 @@ a:	cin>>choice;
 			break;
 		}
 		case 3:{
-			  s -> display();
-			
+			  s -> display();		
 			break;
 		}
 		case 4:{
@@ -89,10 +90,10 @@ a:	cin>>choice;
 		}
 		default:{
 			cout<<"Try Again: ";
-			goto a;
 			break;
 		}
-	}
+}
+system("cls");
 		}while(choice!=4);	
 	
 
