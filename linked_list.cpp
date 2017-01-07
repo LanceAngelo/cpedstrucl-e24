@@ -63,7 +63,7 @@ void addafter(int num, int loc) {
   int i;
   struct node * temp, * left, * right;
   right = head;
-  for (i = 1; i < loc; i++) {
+  for (i = 0; i < loc; ++i) {
     left = right;
     right = right -> next;
   }
@@ -73,6 +73,24 @@ void addafter(int num, int loc) {
   left = temp;
   left -> next = right;
   return;
+}
+
+void addAfter(int num,int loc){
+
+  int i;
+  struct node * temp, * left, * right;
+  right = head;
+  for (i = 0; i < loc; i++) {
+    left = right;
+    right = right -> next;
+  }
+  temp = (struct node * ) malloc(sizeof(struct node));
+  temp -> data = num;
+  left -> next = temp;
+  left = temp;
+  left -> next = right;
+  return;
+  		
 }
 
 int ddelete(int num) {
@@ -95,6 +113,20 @@ int ddelete(int num) {
     }
   }
   return 0;
+}
+
+int ddeleteALL(int num) {
+  	
+  struct node * n;
+  int c = 0;
+  n = head;
+
+  while (n != NULL) {
+  	
+	ddelete(num);
+	n = n -> next;
+	c++;
+}
 }
 
 void insert(int num) {
@@ -136,6 +168,13 @@ int main() {
   int i, num;
   struct node * n;
   head = NULL;
+  int loc;
+  insert(1);
+  insert(4);
+  insert(3);
+  insert(4);
+  insert(4);
+  
   while (1) {
     printf("Linked List Operations\n");
     printf("===============\n");
@@ -144,6 +183,9 @@ int main() {
     printf("3.Size\n");
     printf("4.Delete\n");
     printf("5.Search\n");
+    printf("6.Add After\n");
+    printf("7.Delete All\n");
+    printf("8.EXIT\n");
     printf("Enter your choice : ");
     if (scanf("%d", & i) <= 0) {
       printf("Enter only an Integer\n");
@@ -182,6 +224,24 @@ int main() {
         	printf("Enter Number to search: ");
         	scanf("%d",&num);
         	search(num);
+      case 6:
+
+        	printf("Enter Value : ");
+        	scanf("%d",&num);
+        	printf("Enter Location : ");
+        	scanf("%d", &loc);
+        	addAfter(num,loc);
+      case 7:
+    	  if (head == NULL)
+          printf("List is Empty\n");
+        else {
+          printf("Enter the number to delete : ");
+          scanf("%d", &num);
+          ddeleteALL(num);
+        }
+        break;
+    	case 8:
+    		exit(0);
       }
     }
     
